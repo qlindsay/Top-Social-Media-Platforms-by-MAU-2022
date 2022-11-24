@@ -1,0 +1,26 @@
+# Import plotting library to create interactive visualization
+import matplotlib.pyplot as plt 
+
+# Dataset
+values = [2.9, 2.2, 2, 2, 1.26]
+labels = ["Facebook (2.9B)", "YouTube (2.2B)", "WhatsApp (2.0B)", "Instagram (2.0B)", "WeChat (1.2B)"]
+
+# Assign a color to each label 
+colors = ["#6d904f", "#89CFF0", "#FFA500", "#D2B48C", "#FFCCCB"]
+
+# Separate Facebook (index 0 in the labels list above) from the pie to make it distinct 
+explode = [0.1, 0, 0, 0, 0]
+
+# This uses the chart in a fivethirtyeight styling -- replicating styles from fivethirtyeight.com 
+plt.style.use("fivethirtyeight")
+
+# Create a pie chart 
+plt.pie(values, labels=labels, explode=explode, shadow=True, colors=colors, autopct="%1.1f%%",
+       wedgeprops={"edgecolor": "black"})
+
+# Create the title & use tight_layout() to make sure subplots are adjusted to fit the figure area
+plt.title("Top Five Social Media Platforms by MAU (2022)",fontweight="bold")
+plt.tight_layout()
+
+# Show the data 
+plt.show()
